@@ -1,0 +1,37 @@
+.saolei-box {
+  box-sizing: border-box;
+  font-size: 0px;
+  width: 541px;
+}
+.saolei-box .none-item {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: solid 1px;
+  line-height: 16px;
+  text-align: center;
+  font-size: 12px;
+  cursor: pointer;
+  vertical-align: top;
+}
+.saolei-box .none-item.style-none:hover {
+  background: #ffeb3b;
+}
+.saolei-box .none-item.lei {
+  background: #000000;
+}
+.saolei-box .none-item.none.lei {
+  background: #000000;
+}
+.saolei-box .none-item.none {
+  background: #4caf50f2;
+}
+.saolei-box .none-item.lei.style-none {
+  background: #ffffff;
+}
+.saolei-box .none-item.none.lei.style-none {
+  background: #ffffff;
+}
+.saolei-box .none-item.none.style-none {
+  background: #ffffff;
+}
