@@ -1,6 +1,7 @@
 //初始化扫雷地图
 var objArr = [];
-let nnnnn = 0;
+var nnnnn = 0;
+var total = 100;
 function init() {
   var ranArr = [];
   for (var i = 1; ranArr.length < 100; i++) {
@@ -21,7 +22,8 @@ function init() {
       none: resNum == 0,
       styleNone: true,
       resNum: resNum,
-      isClick: false
+      isClick: false,
+      signLei: false
     };
     objArr.push(obj);
   }
@@ -35,7 +37,9 @@ function xuanran() {
       objArr[i].lei ? 'lei' : ''
     } ${objArr[i].none ? 'none' : ''} ${
       objArr[i].styleNone ? 'style-none' : ''
-    }" onclick=itemClickHandle(${objArr[i].id}) oncontextmenu=fff(event,this)>${
+    } ${objArr[i].signLei ? 'signLei' : ''}" onclick=itemClickHandle(${
+      objArr[i].id
+    }) oncontextmenu=fff(event,this)>${
       objArr[i].isClick && objArr[i].resNum > 0 ? objArr[i].resNum : ''
     }</div>`;
   }
@@ -49,14 +53,25 @@ function getRam(x) {
 }
 //点击事件
 function itemClickHandle(id) {
+  if (objArr[id - 1].signLei) {
+    return;
+  }
   itemClickFor(id);
   xuanran();
 }
 
 //鼠标右键点击事件
-function fff(e,t){
-  e.preventDefault()
-  objArr[t.getAttribute('id')-1].signLei = true
+function fff(e, t) {
+  e.preventDefault();
+  objArr[t.getAttribute('id') - 1].signLei = !objArr[t.getAttribute('id') - 1]
+    .signLei;
+  if (objArr[t.getAttribute('id') - 1].signLei) {
+    total--;
+  } else {
+    total++;
+  }
+  document.getElementById('total').innerHTML = total;
+  xuanran();
 }
 
 function areaArrHandle(i) {
@@ -104,7 +119,7 @@ function itemClickFor(id) {
   item.isClick = true;
   if (item.resNum == 0) {
     var arr = [];
-    arr = areaArrHandle(item.id)
+    arr = areaArrHandle(item.id);
     for (var i = 0; i < arr.length; i++) {
       if (arr[i] > 0 && arr[i] <= 900) {
         itemClickFor(arr[i]);

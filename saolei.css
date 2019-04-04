@@ -17,6 +17,9 @@
 .saolei-box .none-item.style-none:hover {
   background: #ffeb3b;
 }
+.saolei-box .none-item.lei.style-none:hover {
+  background: #ffeb3b;
+}
 .saolei-box .none-item.lei {
   background: #000000;
 }
@@ -34,4 +37,16 @@
 }
 .saolei-box .none-item.none.style-none {
   background: #ffffff;
+}
+.saolei-box .none-item.signLei {
+  background: red;
+}
+.saolei-box .none-item.lei.style-none.signLei {
+  background: red;
+}
+.saolei-box .none-item.none.lei.style-none.signLei {
+  background: red;
+}
+.saolei-box .none-item.none.style-none.signLei {
+  background: red;
 }
