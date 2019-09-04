@@ -1,0 +1,16 @@
+ '/config': {
+        target: httpurl,  // 接口域名
+        changeOrigin: true,   // 是否跨域
+        secure: false,
+        headers: {
+          Referer: httpurl,
+          Cookie: cookieStr
+        },
+        pathRewrite: {
+          //'^/apis': ''   // 需要rewrite重写的
+        }
+      },
+
+
+var cookieStr = 'JSESSIONID=4F750993D892E548E0067E16F79E3E7F'
+// var httpurl = 'https://10.20.81.41'
